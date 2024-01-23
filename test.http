@@ -1,1 +1,25 @@
 GET http://localhost:8080/patients
+
+### New order
+POST http://localhost:8080/order
+content-type: application/json
+
+{
+  "last_order_id": 3,
+    "patient_id": 1,
+    "text": "拉拉拉拉"
+}
+
+### Get order by patients
+GET http://localhost:8080/orders/1
+
+### Edit order
+PATCH http://localhost:8080/order/1
+content-type: application/json
+
+{
+  "order_id": 1,
+    "text": "拉拉拉拉999",
+  "prev_order": "拉拉拉拉999"
+}
+
