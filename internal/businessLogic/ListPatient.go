@@ -9,8 +9,6 @@ import (
 func ListPatient(ctx context.Context, pageSize, page int) ([]models.Patient, error) {
 	db := ctx.Value("db").(*gorm.DB)
 	var patients []models.Patient
-	// TODO: remove auto migrate
-	db.AutoMigrate(&models.Patient{}, &models.Order{}, &models.OrderLog{})
 	tx := db.Select("id", "name")
 	tx = tx.Table("patients")
 	tx = tx.Limit(pageSize)
